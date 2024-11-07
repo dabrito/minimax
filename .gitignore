@@ -1,0 +1,76 @@
+# Archivos compilados por Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Extensiones C
+*.so
+
+# Archivos de distribución/paquetes
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Archivos generados por PyInstaller
+*.manifest
+*.spec
+
+# Registros de instalación
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Informes de pruebas y cobertura
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Archivos de traducción
+*.mo
+*.pot
+
+# Archivos de bases de datos locales
+*.db
+*.sqlite3
+
+# Archivos de configuración local
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Configuraciones de editores y entornos de desarrollo
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
