@@ -1,15 +1,16 @@
-mvp_minimax/
-├── main.py           # Punto de entrada del programa
-├── minimax.py        # Implementación del algoritmo Minimax
-├── utility.py        # Función de utilidad para evaluar nodos
-├── data/
-│   ├── rival_data.json  # Datos iniciales del rival
-│   └── product_data.json # Datos del producto
-├── utils/
-│   ├── input_handler.py # Manejo de entradas del usuario
-│   ├── output_formatter.py # Formateo y visualización de resultados
-├── tests/
-│   ├── test_minimax.py   # Pruebas unitarias del algoritmo
-│   └── test_inputs.py    # Pruebas de validación de entradas
-├── requirements.txt  # Librerías necesarias
-└── README.md         # Documentación del proyecto
+MiniMax/
+├── frontend/
+│   ├── main.py           # Punto de entrada de la aplicación de escritorio
+│   ├── ui/               # Interfaces de usuario
+│   │   ├── components.py
+│   │   └── styles.py
+├── backend/
+│   ├── __init__.py
+│   ├── minimax.py        # Implementación del algoritmo Minimax
+│   ├── models.py         # Definición de modelos de datos
+│   ├── controllers.py    # Lógica de negocio
+├── database/
+│   ├── db_connection.py  # Conexión a MySQL
+│   ├── schema.sql        # Esquema de la base de datos
+├── requirements.txt      # Dependencias del proyecto
+└── README.md

@@ -1,9 +1,1 @@
-json
-sys
-argparse
-tabulate
-pytest unittest
-pandas
-math
-numpy
-pandas
+mysql-connector-python
