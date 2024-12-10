@@ -1,25 +1,24 @@
-from database.db_connection import get_connection
-from models import Product
+from backend.database.firebase_config import db
+from backend.models import Product
 
+# Agregar producto a Firebase
+def add_product_to_db(product: Product):
+    doc_ref = db.collection("products").add(product.to_dict())
+    print(f"Producto agregado con ID: {doc_ref[1].id}")
+
+# Obtener todos los productos desde Firebase
 def get_all_products():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM productos")
-    rows = cursor.fetchall()
-    conn.close()
-    products = []
-    for row in rows:
-        product = Product(*row)
-        products.append(product)
-    return products
+    docs = db.collection("products").stream()
+    return [Product.from_dict(doc.to_dict(), doc.id) for doc in docs]
 
-def update_product(product):
-    conn = get_connection()
-    cursor = conn.cursor()
-    sql = """UPDATE productos SET name=%s, cost=%s, rival_price=%s,
-            initial_price=%s, min_price=%s, max_price=%s WHERE id=%s"""
-    values = (product.name, product.cost, product.rival_price,
-              product.initial_price, product.min_price, product.max_price, product.id)
-    cursor.execute(sql, values)
-    conn.commit()
-    conn.close()
+# Actualizar un producto en Firebase
+def update_product_in_db(product: Product):
+    if not product.id:
+        raise ValueError("El producto debe tener un ID para ser actualizado.")
+    db.collection("products").document(product.id).set(product.to_dict(), merge=True)
+    print(f"Producto con ID {product.id} actualizado.")
+
+# Eliminar un producto de Firebase
+def delete_product_from_db(product_id: str):
+    db.collection("products").document(product_id).delete()
+    print(f"Producto con ID {product_id} eliminado.")
